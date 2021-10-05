@@ -9,10 +9,15 @@ export function checkBenefitValue(benefit) {
 export function decreasingBenefit(drug, settings) {
   if (checkBenefitValue(drug.benefit)) {
     // console.log("decreasing benefit", drug.name);
+
     if (drug.expiresIn > 0) {
       drug.benefit = drug.benefit - settings.beforeExpired;
     } else {
-      drug.benefit = drug.benefit - settings.afterExpired;
+      if (settings.benefitAfterExpired) {
+        drug.benefit = drug.benefit - settings.afterExpired;
+      } else {
+        drug.benefit = 0;
+      }
     }
   }
   return drug.benefit > 0 ? drug.benefit : 0;
@@ -21,10 +26,15 @@ export function decreasingBenefit(drug, settings) {
 export function increasingBenefit(drug, settings) {
   if (checkBenefitValue(drug.benefit)) {
     // console.log("increasing benefit", drug.name);
+
     if (drug.expiresIn > 0) {
       drug.benefit = drug.benefit + settings.beforeExpired;
     } else {
-      drug.benefit = drug.benefit + settings.afterExpired;
+      if (settings.benefitAfterExpired) {
+        drug.benefit = drug.benefit + settings.afterExpired;
+      } else {
+        drug.benefit = 0;
+      }
     }
   }
   return drug.benefit < 50 ? drug.benefit : 50;
@@ -36,25 +46,25 @@ export const classifyPharmacy = {
   },
   doliprane: {
     mutable: "decreasing",
-    mutableAfterExpired: true,
+    benefitAfterExpired: true,
     beforeExpired: 1,
     afterExpired: 2,
   },
   "herbal tea": {
     mutable: "increasing",
-    mutableAfterExpired: true,
+    benefitAfterExpired: true,
     beforeExpired: 1,
     afterExpired: 2,
   },
   fervex: {
     mutable: "increasing",
-    mutableAfterExpired: false,
+    benefitAfterExpired: false,
     beforeExpired: 1,
     afterExpired: 0,
   },
   dafalgan: {
     mutable: "decreasing",
-    mutableAfterExpired: true,
+    benefitAfterExpired: true,
     beforeExpired: 2,
     afterExpired: 4,
   },
