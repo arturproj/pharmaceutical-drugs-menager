@@ -5,8 +5,8 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "start" :"node index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.mjs",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
     "rimraf": "^3.0.2"
   }
 }
