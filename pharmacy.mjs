@@ -5,6 +5,9 @@ import {
   increasingBenefit,
 } from "./middlewarePharmacy.mjs";
 
+import fs from "fs";
+
+
 export class Drug {
   constructor(name, expiresIn, benefit) {
     this.name = name;
@@ -18,7 +21,6 @@ export class Pharmacy {
     this.drugs = drugs;
   }
   updateBenefitValue() {
-
     this.drugs = this.drugs.map((drug) => {
       drug.expiresIn = decreasingExpiresIN(drug.expiresIn);
 

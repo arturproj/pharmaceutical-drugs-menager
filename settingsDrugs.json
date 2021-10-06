@@ -1,0 +1,29 @@
+{
+  "magic pill": {
+    "mutable": false
+  },
+  "doliprane": {
+    "mutable": "decreasing",
+    "benefitAfterExpired": true,
+    "beforeExpired": 1,
+    "afterExpired": 2
+  },
+  "herbal tea": {
+    "mutable": "increasing",
+    "benefitAfterExpired": true,
+    "beforeExpired": 1,
+    "afterExpired": 2
+  },
+  "fervex": {
+    "mutable": "increasing",
+    "benefitAfterExpired": false,
+    "beforeExpired": 1,
+    "afterExpired": 0
+  },
+  "dafalgan": {
+    "mutable": "decreasing",
+    "benefitAfterExpired": true,
+    "beforeExpired": 2,
+    "afterExpired": 4
+  }
+}
